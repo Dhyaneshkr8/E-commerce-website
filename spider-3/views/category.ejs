@@ -1,0 +1,54 @@
+<%- include('partials/headerin') %>
+
+
+
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">PRODUCTS</h1>
+    <p class="lead text-muted mb-0">All the products mentioned below are for sale</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+      <div class="row">
+
+        <%  items.forEach(function(item){    %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title text-center" style="color: blue"><%= item.itemName %></h4>
+              <p class="card-text text-center"><%= item.description %></p>
+              <div class="row">
+                <div class="col">
+                  <p class="text-center">Quantity : <%= item.quantity %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <p class="btn btn-danger btn-block">$ <%= item.price %></p>
+                </div>
+
+                <div class="col">
+                  <a href=<%= custCart %> class="btn btn-success btn-block">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%  })  %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<%- include('partials/footerin') %>

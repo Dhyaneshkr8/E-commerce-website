@@ -1,0 +1,69 @@
+<%- include('partials/headerout') %>
+
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">WELCOME BACK!</h1><br>
+    <h3 class="jumbotron-heading"><%= sellerName %></h3><br><br>
+    <p class="lead text-muted mb-0">PRODUCTS ADDED BY YOU</p>
+  </div>
+</section>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+
+        <%  addedItems.forEach(function(item){ %>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card">
+            <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title text-center" style="color: blue" ><%= item.itemName  %></h3>
+              <h5 class="card-title text-center"><%= item.itemCategory %></h5>
+              <p class="card-text text-center"><%= item.description %></p>
+              <p class="text-center">Quantity: <%= item.quantity %></p>
+              <div class="row">
+                <div class="col">
+                  <p class="btn btn-danger btn-block"><%= item.price %> $</p>
+                  <button name="itemVal" class="btn btn-link btn-block"> <a href=<%= updateLink + "/" + item._id %>> UPDATE</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h3 class="jumbotron-heading">TO ADD NEW ITEMS CLICK BELOW</h3>
+    <br><br>
+    <a class="btn btn-primary btn-lg" href= <%= sellerIDlink  %>><i class="fa fa-plus" aria-hidden="true"></i> NEW ITEM</a>
+    <br><br><br>
+  </div>
+</section>
+
+<!-- <section class="jumbotron text-center">
+  <div class="container">
+    <h3 class="jumbotron-heading">TO UPDATE ITEM DETAILS</h3>
+    <br><br>
+    <a class="btn btn-primary btn-lg" href="/itemUpdate"><i class="fa fa-plus" aria-hidden="true"></i>  UPDATE ITEM</a>
+    <br><br><br>
+  </div>
+</section> -->
+
+
+
+
+
+
+
+<%- include('partials/footerin') %>
